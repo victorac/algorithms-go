@@ -1,7 +1,6 @@
 package sort
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -33,7 +32,6 @@ type bucketItem struct {
 
 func Radix(numbers []int) {
 	longest := getLongest(numbers)
-	fmt.Printf("Longest %v\n", longest)
 	for i := 0; i < longest; i++ {
 		buckets := [10][]bucketItem{}
 		for j := 0; j < len(numbers); j++ {
@@ -43,15 +41,11 @@ func Radix(numbers []int) {
 		// fmt.Printf("Buckets: %v\n", buckets)
 		index := 0
 		for j := 0; j < 10; j++ {
-			for k := 0; k < 10; k++ {
-				for l := 0; l < len(buckets[j]); l++ {
-					if buckets[j][l].digit == k {
-						numbers[index] = buckets[j][l].number
-						index++
-					}
-				}
+			// for each bucket
+			for l := 0; l < len(buckets[j]); l++ {
+				numbers[index] = buckets[j][l].number
+				index++
 			}
 		}
-		// fmt.Printf("Numbers: %v\n", numbers)
 	}
 }
