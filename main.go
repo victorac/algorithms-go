@@ -2,6 +2,7 @@ package main
 
 import (
 	"algo/recursion"
+	"algo/search"
 	"algo/sort"
 	"fmt"
 )
@@ -95,7 +96,27 @@ func runRecursive() {
 
 }
 
+type SearchParam struct {
+	numbers []int
+	element int
+}
+
+func runSearch() {
+	arrays := []SearchParam{
+		SearchParam{[]int{1, 2, 3, 4, 5}, 2},
+		SearchParam{[]int{1, 2, 3, 4, 5, 6, 7, 8}, 5},
+		SearchParam{[]int{1, 2, 3, 4, 5, 6, 7, 8}, 8},
+		SearchParam{[]int{1, 2, 3, 4, 5, 6, 7, 8}, 10},
+		SearchParam{[]int{10, 20, 30, 40, 50, 60, 70, 80}, 15},
+	}
+	for i := 0; i < len(arrays); i++ {
+		fmt.Printf("Searching %v, for element: %v\n", arrays[i].numbers, arrays[i].element)
+		fmt.Printf("Position: %v\n", search.Binary(arrays[i].numbers, arrays[i].element))
+	}
+}
+
 func main() {
-	runSorting()
+	// runSorting()
 	// runRecursive()
+	runSearch()
 }
