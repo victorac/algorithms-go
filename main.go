@@ -1,6 +1,7 @@
 package main
 
 import (
+	"algo/lists"
 	"algo/recursion"
 	"algo/search"
 	"algo/sort"
@@ -115,8 +116,55 @@ func runSearch() {
 	}
 }
 
+func runArrayList() {
+	arr := lists.Array{}
+
+	arr.Push(1)
+	arr.Push(2)
+	arr.Push(3)
+
+	arr.Pop()
+
+	arr.Push(35)
+
+	arr.Delete(0)
+
+	for i := 0; i < arr.Length; i++ {
+		fmt.Println(arr.Get(i))
+	}
+
+}
+
+func runLinkedList() {
+	arr := lists.LinkedList{}
+
+	arr.Push(1)
+	arr.Push(2)
+	arr.Push(6)
+
+	arr.Pop()
+
+	arr.Push(35)
+	arr.Push(36)
+
+	arr.Delete(0)
+	arr.Delete(0)
+
+	arr.Pop()
+	arr.Push(56)
+	arr.Push(509)
+
+	for i := 0; i < arr.Length; i++ {
+		node := arr.Get(i)
+		fmt.Println(node.Value)
+	}
+
+}
+
 func main() {
 	// runSorting()
 	// runRecursive()
-	runSearch()
+	// runSearch()
+	// runArrayList()
+	runLinkedList()
 }
