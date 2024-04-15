@@ -5,6 +5,7 @@ import (
 	"algo/recursion"
 	"algo/search"
 	"algo/sort"
+	"algo/trees"
 	"fmt"
 )
 
@@ -161,10 +162,31 @@ func runLinkedList() {
 
 }
 
+func runBST() {
+	tree := trees.BST{}
+
+	tree.Push(5)
+	tree.Push(9)
+	tree.Push(3)
+	tree.Push(4)
+	tree.Push(7)
+	tree.Push(12)
+	tree.Print()
+	tree.Delete(4)
+	tree.Delete(7)
+	tree.Delete(12)
+	tree.Delete(5)
+	tree.Print()
+	tree.Delete(9)
+	tree.Print()
+
+}
+
 func main() {
 	// runSorting()
 	// runRecursive()
 	// runSearch()
 	// runArrayList()
-	runLinkedList()
+	// runLinkedList()
+	runBST()
 }
